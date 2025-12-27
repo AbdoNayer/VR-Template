@@ -1106,6 +1106,13 @@ a {
   }
 }
 
+/* Responsive */
+@media (width < 1000px) {
+  .body-content-scroll {
+    display: none;
+  }
+}
+
 /* Animation */
 @keyframes twinkle {
   0%,
