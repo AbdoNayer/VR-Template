@@ -1684,6 +1684,11 @@ header .flex-content-header nav .menu-toggle span {
   transform: scale(1.05);
   opacity: 1;
 }
+@media (max-width: 992px) {
+  .content-five .explore-product .right-sec {
+    display: none;
+  }
+}
 .content-five.active-animation .our-company .left-sec h2,
 .content-five.active-animation .our-company .left-sec p {
   animation: slideLeft 0.8s ease-out forwards;
