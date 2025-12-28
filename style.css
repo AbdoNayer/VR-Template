@@ -560,7 +560,7 @@ header .flex-content-header nav ul li {
 header .flex-content-header nav ul li a {
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: bold;
   transition: all 0.3s ease-in-out;
 }
 @media (max-width: 992px) {
@@ -568,10 +568,10 @@ header .flex-content-header nav ul li a {
     font-size: 24px;
   }
 }
-header .flex-content-header nav ul li::after {
+header .flex-content-header nav ul li a::after {
   content: "";
   position: absolute;
-  bottom: -5px;
+  bottom: -10px;
   width: 0;
   height: 2px;
   left: 50%;
@@ -579,7 +579,10 @@ header .flex-content-header nav ul li::after {
   background: linear-gradient(90deg, rgb(200, 36, 236) 0%, rgb(223, 48, 141) 50%);
   transition: all 0.3s ease-in-out;
 }
-header .flex-content-header nav ul li:hover::after, header .flex-content-header nav ul li.active::after {
+header .flex-content-header nav ul li a:hover, header .flex-content-header nav ul li a.active {
+  color: transparent;
+}
+header .flex-content-header nav ul li a:hover::after, header .flex-content-header nav ul li a.active::after {
   width: 80%;
 }
 header .flex-content-header nav .login {

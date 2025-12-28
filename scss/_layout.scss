@@ -74,28 +74,31 @@ header {
           a {
             color: rgba(255, 255, 255, 0.7);
             font-size: 14px;
-            font-weight: 500;
+            font-weight: bold;
             @include transition;
 
             @include respond-to(md) {
               font-size: 24px;
             }
-          }
 
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            @include size(0, 2px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: $gradient-primary;
-            transition: $transition-base;
-          }
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -10px;
+              @include size(0, 2px);
+              left: 50%;
+              transform: translateX(-50%);
+              background: $gradient-primary;
+              transition: $transition-base;
+            }
 
-          &:hover::after,
-          &.active::after {
-            width: 80%;
+            &:hover,
+            &.active {
+              color: transparent;
+              &::after {
+                width: 80%;
+              }
+            }
           }
         }
       }

@@ -12,9 +12,9 @@ $(document).ready(function () {
   // Active Item On Click In Nav
   $(document).on("click", "nav ul li a", function (e) {
     // Remove active class from all links
-    $("nav ul li a").removeClass("active gradient-link");
+    $("nav ul li a").removeClass("active");
     // Add active class to clicked link
-    $(this).addClass("active gradient-link");
+    $(this).addClass("active");
   });
 
   // Animation Trigger
@@ -44,8 +44,8 @@ $(document).ready(function () {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute("id");
         if (id) {
-          $("nav ul li a").removeClass("active gradient-link");
-          $(`nav ul li a[href="#${id}"]`).addClass("active gradient-link");
+          $("nav ul li a").removeClass("active");
+          $(`nav ul li a[href="#${id}"]`).addClass("active");
         }
       }
     });
