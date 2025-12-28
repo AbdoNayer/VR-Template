@@ -13,6 +13,10 @@
     }
   }
 
+  .view-direction {
+    flex-direction: column-reverse;
+  }
+
   .left-sec {
     .info-content {
       @include respond-to(md) {
@@ -128,6 +132,8 @@
     .left-sec {
       h1,
       p {
+        max-width: 100%;
+        padding: 0 10px;
         animation: slideInRight 0.8s ease-out forwards;
       }
       .get-start {
@@ -169,7 +175,7 @@
 
     @include respond-to(md) {
       flex-basis: 100%;
-      margin-top: 100px;
+      // margin-top: 100px;
       padding-bottom: 50px;
     }
 
@@ -625,6 +631,7 @@
 
       @include respond-to(md) {
         height: 100%;
+        top: 0;
       }
     }
 

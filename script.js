@@ -54,4 +54,19 @@ $(document).ready(function () {
   document.querySelectorAll(".scroll-content").forEach((section) => {
     navObserver.observe(section);
   });
+
+  // Mobile Menu Toggle
+  const nav = document.querySelector("nav");
+  const menuToggle = document.querySelector(".menu-toggle");
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("nav-open");
+    });
+  }
+
+  // Close menu when a link is clicked
+  $(document).on("click", "nav ul li a", function (e) {
+    $("nav").removeClass("nav-open");
+  });
 });
