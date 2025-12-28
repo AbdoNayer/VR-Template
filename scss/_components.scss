@@ -1,0 +1,137 @@
+// Components
+
+/* Loading Wave */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  @include size(100%);
+  @include flex;
+  background-color: #000;
+
+  .loading-wave {
+    @include size(300px, 100px);
+    @include flex(flex-end, center);
+
+    .loading-bar {
+      @include size(15px, 10px);
+      margin: 0 5px;
+      background-color: $color-violet;
+      border-radius: 2px;
+      animation: loading-wave-animation 1s ease-in-out infinite;
+
+      @for $i from 2 through 4 {
+        &:nth-child(#{$i}) {
+          animation-delay: ($i - 1) * 0.1s;
+        }
+      }
+    }
+  }
+}
+
+/* Light Sphere */
+.light-sphere {
+  @include size(600px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(170, 20, 240, 0.5) 0%,
+    rgba(170, 20, 240, 0) 70%
+  );
+  filter: blur(30px);
+  opacity: 0.8;
+  position: absolute;
+}
+
+/* Stars Rating */
+.stars {
+  @include flex(center, flex-start, row, 5px);
+
+  span {
+    position: relative;
+    @include size(15px);
+    background: $color-gold;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    animation: starPulse 2s infinite ease-in-out;
+
+    &:nth-child(-n + 4) {
+      background: $color-gold;
+      filter: drop-shadow(0 0 5px rgba($color-gold, 0.6));
+    }
+
+    &:nth-child(5) {
+      background: #fff;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+      animation-delay: 0.5s;
+    }
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.1s;
+      }
+    }
+  }
+}
+
+/* Gradient Text Link */
+.gradient-link {
+  color: #fff;
+  font-weight: bold;
+  position: relative;
+  transition: $transition-base;
+
+  &:before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    @include gradient-text;
+    white-space: nowrap;
+    transition: $transition-animation;
+    overflow: hidden;
+    z-index: 2;
+    color: transparent;
+  }
+
+  &:hover,
+  &.active {
+    &:before {
+      width: 100%;
+    }
+  }
+
+  /* Fallback for background-clip: text */
+  @supports not (background-clip: text) {
+    &:hover {
+      color: #b936f5;
+    }
+  }
+}
+
+/* Primary Button */
+.btn-primary {
+  color: #fff;
+  background: $gradient-primary;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: $transition-base;
+  @include flex;
+
+  &:hover {
+    transform: scale(0.9);
+  }
+}

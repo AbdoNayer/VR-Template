@@ -1,0 +1,20 @@
+// Main SCSS
+
+// Utilities (Variables & Mixins)
+@import "./scss/variables";
+@import "./scss/mixins";
+
+// Base Styles
+@import "./scss/base";
+
+// Animations
+@import "./scss/animations";
+
+// Components
+@import "./scss/components";
+
+// Layout
+@import "./scss/layout";
+
+// Sections (Pages)
+@import "./scss/sections";

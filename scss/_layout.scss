@@ -1,0 +1,113 @@
+// Layout
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  // background: rgba(1, 2, 8, 0.8);
+  backdrop-filter: blur(10px);
+
+  .flex-content-header {
+    @include flex(center, space-between);
+    padding: 15px 0;
+    position: relative;
+    @include respond-to(md) {
+      padding: 10px 0;
+    }
+
+    .logo img {
+      max-width: 100px;
+      @include respond-to(sm) {
+        max-width: 70px;
+      }
+    }
+
+    nav {
+      @include flex(center, center, row, 30px);
+
+      @include respond-to(md) {
+        gap: 15px;
+      }
+
+      ul {
+        @include flex(center, center, row, 30px);
+
+        @include respond-to(md) {
+          display: none;
+        }
+
+        li {
+          position: relative;
+
+          a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 500;
+            @include transition;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            @include size(0, 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: $gradient-primary;
+            transition: $transition-base;
+          }
+
+          &:hover::after,
+          &.active::after {
+            width: 80%;
+          }
+        }
+      }
+
+      .login {
+        @extend .btn-primary;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 14px;
+
+        @include respond-to(sm) {
+          padding: 8px 15px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+.view-content {
+  min-height: 100vh;
+  @include flex;
+  padding-top: 80px;
+  position: relative;
+
+  @include respond-to(md) {
+    height: auto;
+    padding-top: 60px;
+  }
+
+  .view-direction {
+    width: 100%;
+    @include flex(center, center);
+
+    @include respond-to(md) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .left-sec,
+    .right-sec {
+      flex-basis: 50%;
+      @include respond-to(md) {
+        flex-basis: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

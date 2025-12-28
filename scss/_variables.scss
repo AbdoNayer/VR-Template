@@ -1,0 +1,31 @@
+// Colors
+$color-dark-bg: #010208;
+$color-purple: rgba(170, 20, 240, 0.5);
+$color-pink: rgba(223, 48, 141, 1);
+$color-violet: rgba(200, 36, 236, 1);
+$color-gold: #ffd700;
+$color-white: #ffffff;
+$color-border: #d783ff;
+$color-accent-bg: #534686;
+
+// Gradients
+$gradient-dark: linear-gradient(
+  180deg,
+  #010208 0%,
+  #010206 15%,
+  #040008 30%,
+  #010101 100%
+);
+$gradient-primary: linear-gradient(90deg, $color-violet 0%, $color-pink 50%);
+
+// Layout
+$container-max-width: 1320px;
+$container-padding: 1rem;
+
+// Typography
+$font-primary: "Orbitron", sans-serif;
+
+// Transitions
+$transition-base: all 0.3s ease-in-out;
+$transition-slow: all 0.5s ease-in-out;
+$transition-animation: all 1.5s ease-in-out;

@@ -1,0 +1,138 @@
+// Base Styles
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: inherit;
+}
+
+body {
+  font-family: $font-primary;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: $gradient-dark;
+  color: #fff;
+  letter-spacing: 1px;
+  min-height: 100vh;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+li,
+input,
+label {
+  color: #fff;
+  margin: 0;
+}
+
+a {
+  @include button-reset;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+
+img{
+  object-fit: cover;
+}
+
+.light-sphere,
+.star {
+  pointer-events: none;
+}
+
+.body-content-scroll {
+  @include size(100%, 100vh);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  @include respond-to(md) {
+    height: auto;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+
+  .scroll-content {
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    @include respond-to(md) {
+      min-height: auto;
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
+  }
+}
+
+/* Container */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: $container-padding;
+  max-width: $container-max-width;
+
+  // Media Queries for Container
+  @include respond-to(xl) {
+    max-width: 1140px;
+  }
+  @include respond-to(lg) {
+    max-width: 960px;
+  }
+  @include respond-to(md) {
+    max-width: 720px;
+  }
+  @include respond-to(sm) {
+    max-width: 540px;
+  }
+  @include respond-to(xs) {
+    max-width: 100%;
+  }
+}
+
+/* Global Animation State */
+[class^="content-"] {
+  * {
+    animation-play-state: paused !important;
+  }
+
+  &.active-animation * {
+    animation-play-state: running !important;
+  }
+
+  @include respond-to(md) {
+    * {
+      animation-play-state: running !important;
+    }
+  }
+}
