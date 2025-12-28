@@ -12,9 +12,10 @@
       @include size(300px);
     }
   }
-
   .view-direction {
-    flex-direction: column-reverse;
+    @include respond-to(md) {
+      flex-direction: column-reverse;
+    }
   }
 
   .left-sec {
